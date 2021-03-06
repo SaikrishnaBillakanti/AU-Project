@@ -13,13 +13,13 @@ import javax.persistence.OneToOne;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
 
-@Document(collection="customer")
+@Document(collection="User")
 public class User 
 {
 	@Id
     @GeneratedValue(strategy=GenerationType.IDENTITY)
-    @Column(name="userId",nullable=false,updatable=false)
-	private long userId;
+    @Column(name="id",nullable=false,updatable=false)
+	private String id;
 	private String username;
     private String password;
 	private String fname;
@@ -37,12 +37,12 @@ public class User
 
 
 	
-	public long getId() {
-		return userId;
+	public String getId() {
+		return id;
 	}
 
-	public void setId(long id) {
-		this.userId = id;
+	public void setId(String id) {
+		this.id = id;
 	}
 
 	public String getUsername() {

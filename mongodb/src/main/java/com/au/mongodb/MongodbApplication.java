@@ -5,13 +5,13 @@ import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
-import com.au.mongodb.Repository.CustomerRepository;
+import com.au.mongodb.Repository.UserRepository;
 
 @SpringBootApplication
 public class MongodbApplication implements CommandLineRunner
 {
     @Autowired
-    CustomerRepository customerRepository;
+    UserRepository customerRepository;
     
 	public static void main(String[] args) {
 		SpringApplication.run(MongodbApplication.class, args);

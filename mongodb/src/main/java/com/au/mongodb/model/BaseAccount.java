@@ -15,12 +15,12 @@ import org.springframework.data.mongodb.core.mapping.Document;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
 
-@Document(collection="BaseAccounts")
+@Document(collection="BaseAccount")
 public class BaseAccount
 {
 	@Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
+    private String id;
     private int accountNumber;
     private BigDecimal accountBalance;
 
@@ -29,7 +29,7 @@ public class BaseAccount
     private List<Transaction> TransactionList;
 
     
-	public BaseAccount(Long id, int accountNumber, BigDecimal accountBalance,
+	public BaseAccount(String id, int accountNumber, BigDecimal accountBalance,
 			List<Transaction> TransactionList) {
 		super();
 		this.id = id;
@@ -38,11 +38,11 @@ public class BaseAccount
 		this.TransactionList = TransactionList;
 	}
 
-	public Long getId() {
+	public String getId() {
 		return id;
 	}
 
-	public void setId(Long id) {
+	public void setId(String id) {
 		this.id = id;
 	}
 
