@@ -6,5 +6,9 @@ import com.au.mongodb.model.BaseAccount;
 
 public interface BaseAccountRepository extends MongoRepository<BaseAccount,String>
 {
+	//BaseAccount findAccountByAccountnumber(int accountNumber);
+
+	BaseAccount findByAccountNumber(int accountnumber);
+
 
 }

@@ -1,15 +1,5 @@
 package com.au.mongodb.model;
-
 import java.util.List;
-
-import javax.persistence.CascadeType;
-import javax.persistence.Column;
-import javax.persistence.FetchType;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.OneToMany;
-import javax.persistence.OneToOne;
-
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
 
@@ -17,26 +7,33 @@ import org.springframework.data.mongodb.core.mapping.Document;
 public class User 
 {
 	@Id
-    @GeneratedValue(strategy=GenerationType.IDENTITY)
-    @Column(name="id",nullable=false,updatable=false)
 	private String id;
 	private String username;
     private String password;
-	private String fname;
-	private String lname;
-	
-	@Column(name="email",nullable=false,unique=true)
+	private String name;
     private String email;
     private String phone;
-
-    @OneToOne
     private BaseAccount BA;
-    
-    @OneToMany(mappedBy="user",cascade=CascadeType.ALL,fetch=FetchType.LAZY)
     private List<Recipient> RecipientList;
 
 
-	
+	public User() {
+		super();
+		
+	}
+
+	public User(String username, String password,String name, String email, String phone,
+			BaseAccount bA, List<Recipient> recipientList) {
+		super();
+		this.username = username;
+		this.password = password;
+		this.name = name;
+		this.email = email;
+		this.phone = phone;
+		BA = bA;
+		RecipientList = recipientList;
+	}
+
 	public String getId() {
 		return id;
 	}
@@ -61,20 +58,14 @@ public class User
 		this.password = password;
 	}
 
-	public String getFname() {
-		return fname;
+	
+
+	public String getName() {
+		return name;
 	}
 
-	public void setFname(String fname) {
-		this.fname = fname;
-	}
-
-	public String getLname() {
-		return lname;
-	}
-
-	public void setLname(String lname) {
-		this.lname = lname;
+	public void setName(String name) {
+		this.name = name;
 	}
 
 	public String getEmail() {

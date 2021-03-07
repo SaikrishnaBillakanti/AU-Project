@@ -1,33 +1,34 @@
 package com.au.mongodb.model;
 
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.JoinColumn;
-import javax.persistence.ManyToOne;
-
-import org.apache.catalina.User;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
-
-import com.fasterxml.jackson.annotation.JsonIgnore;
 
 @Document(collection="Recipients")
 public class Recipient
 {
 	 @Id
-	 @GeneratedValue(strategy=GenerationType.IDENTITY)
 	 private Long id;
 	 private String name;
 	 private String email;
 	 private String phone;
 	 private String accountNumber;
-	 private String description;
-	 
-	 @ManyToOne
-	 @JoinColumn(name="user_id")
-	 @JsonIgnore
+	 private String description; 
 	 private User user;
-
+	 
+	 
+	 
+	 public Recipient() {
+		super();		
+	}
+	public Recipient(String name, String email, String phone, String accountNumber, String description, User user) {
+		super();
+		this.name = name;
+		this.email = email;
+		this.phone = phone;
+		this.accountNumber = accountNumber;
+		this.description = description;
+		this.user = user;
+	}
 	public Long getId() {
 		return id;
 	}
@@ -76,14 +77,19 @@ public class Recipient
 		this.description = description;
 	}
 
-	public User getUser() {
+	public User getUser()
+	{
 		return user;
 	}
 
-	public void setUser(User user) {
+	public void setUser (User user) 
+	{
 		this.user = user;
+
 	}
+	
+}
 	 
 	 
 
-}
+

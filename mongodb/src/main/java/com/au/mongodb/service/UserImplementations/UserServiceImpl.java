@@ -7,6 +7,7 @@ import org.springframework.stereotype.Service;
 
 import com.au.mongodb.Repository.UserRepository;
 import com.au.mongodb.model.User;
+import com.au.mongodb.service.BaseAccountService;
 import com.au.mongodb.service.UserService;
 
 
@@ -15,47 +16,45 @@ public class UserServiceImpl implements UserService
 {
 	@Autowired
 	UserRepository userrepository;
+	@Autowired
+    private BaseAccountService baseaccountService;
 
 	public List<User> getAllDetails()
 	{
 		return userrepository.findAll();
 	}
 
-	/*public String CreateUser(User d) {
 
-		User newd = userrepository.save(d);
-		return "User Created With Name " + newd.getFname();
-	}*/
-	public User CreateUser(User user)
+	public String CreateUser(User user)
 	{
         User localUser = userrepository.findByUsername(user.getUsername());
 
         if (localUser != null)
         {
-             System.out.println("UserAlready Exists");
-             return null;
-        	
+             return "UserAlready Exists";
         }
         else
         {
-            localUser = userrepository.save(user);
+        	user.setBA(baseaccountService.createBankAccount());
+            userrepository.save(user);
         }
 
-        return localUser;
+        return "User Created with Username "+user.getUsername()+"with accountnumber "+user.getBA().getAccountNumber();
     }
+	public Long getCount()
+	{
+		return userrepository.count();
+	}
 	public User findUserByUsername(String username) {
         return userrepository.findByUsername(username);
     }
-
-   	public Long getCount() {
-		return userrepository.count();
-	}
 
 	public User getbyid(String id) 
 	{
 		User c=userrepository.findUserById(id);
 		return c;
 	}
+	
 	
 
 

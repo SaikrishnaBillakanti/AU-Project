@@ -9,7 +9,7 @@ public interface UserService
 {
 
 	public User getbyid(String id);
-	public User CreateUser(User d);
+	public String CreateUser(User d);
  	public List<User> getAllDetails();
  	public Long getCount();
  	public User findUserByUsername(String username);
