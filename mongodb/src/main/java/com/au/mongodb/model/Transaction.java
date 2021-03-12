@@ -9,19 +9,19 @@ public class Transaction
 {
 
 	@Id
-	private long id;
+	private String id;
 	private Date date;
 	private String description;
 	private String type;
     private String status;
     private double amount;
-    private BigDecimal availableBalance;
-    
-    private BaseAccount baseAccount;
+    private BigDecimal availableBalance;    
 
-    
+    public Transaction() {
+    	
+    }
 	public Transaction(Date date, String description,String type,String status,double amount,
-			BigDecimal availableBalance, BaseAccount baseAccount) {
+			BigDecimal availableBalance) {
 		super();
 		this.date = date;
 		this.description = description;
@@ -29,7 +29,7 @@ public class Transaction
 		this.status = status;
 		this.amount = amount;
 		this.availableBalance = availableBalance;
-		this.baseAccount = baseAccount;
+		
 	}
 	public String getType() {
 		return type;
@@ -37,10 +37,11 @@ public class Transaction
 	public void setType(String type) {
 		this.type = type;
 	}
-	public long getId() {
+	
+	public String getId() {
 		return id;
 	}
-	public void setId(long id) {
+	public void setId(String id) {
 		this.id = id;
 	}
 	public Date getDate() {
@@ -73,12 +74,7 @@ public class Transaction
 	public void setAvailableBalance(BigDecimal availableBalance) {
 		this.availableBalance = availableBalance;
 	}
-	public BaseAccount getBaseAccount() {
-		return baseAccount;
-	}
-	public void setBaseAccount(BaseAccount baseAccount) {
-		this.baseAccount = baseAccount;
-	}
+	
     
     
     

@@ -6,6 +6,7 @@ public interface BaseAccountService
 {
      BaseAccount getbyAccountnumber(int accountNumber);
      BaseAccount createBankAccount();
-     void deposit(double amount, String username);
+     String deposit(double amount, String username);
      void withdraw(double amount, String username);
+     public String accountdeposit(double amount,String senderusername,String recipient,String description);
 }

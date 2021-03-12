@@ -5,8 +5,11 @@ import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
-import com.au.mongodb.Repository.UserRepository;
+import com.au.mongodb.repository.UserRepository;
 
+import springfox.documentation.swagger2.annotations.EnableSwagger2;
+
+@EnableSwagger2
 @SpringBootApplication
 public class MongodbApplication implements CommandLineRunner
 {
@@ -19,8 +22,6 @@ public class MongodbApplication implements CommandLineRunner
 
 	@Override
 	public void run(String... args) throws Exception {
-		// TODO Auto-generated method stub
-		
+		//empty	
 	}
-
 }

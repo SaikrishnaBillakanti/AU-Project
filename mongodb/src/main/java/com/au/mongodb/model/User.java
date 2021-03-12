@@ -1,5 +1,4 @@
 package com.au.mongodb.model;
-import java.util.List;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
 
@@ -13,25 +12,20 @@ public class User
 	private String name;
     private String email;
     private String phone;
-    private BaseAccount BA;
-    private List<Recipient> RecipientList;
-
-
+    private BaseAccount bankaccount;
+   
 	public User() {
-		super();
-		
+		super();		
 	}
-
-	public User(String username, String password,String name, String email, String phone,
-			BaseAccount bA, List<Recipient> recipientList) {
+	public User(String username, String password, String name, String email, String phone,
+			BaseAccount bankaccount) {
 		super();
 		this.username = username;
 		this.password = password;
 		this.name = name;
 		this.email = email;
 		this.phone = phone;
-		BA = bA;
-		RecipientList = recipientList;
+		this.bankaccount = bankaccount;
 	}
 
 	public String getId() {
@@ -58,8 +52,6 @@ public class User
 		this.password = password;
 	}
 
-	
-
 	public String getName() {
 		return name;
 	}
@@ -84,28 +76,14 @@ public class User
 		this.phone = phone;
 	}
 
-	public BaseAccount getBA() {
-		return BA;
+	public BaseAccount getBankaccount() {
+		return bankaccount;
 	}
 
-	public void setBA(BaseAccount bA) {
-		BA = bA;
+	public void setBankaccount(BaseAccount bankaccount)
+	{
+		this.bankaccount = bankaccount;
 	}
 
-	public List<Recipient> getRecipientList() {
-		return RecipientList;
-	}
-
-	public void setRecipientList(List<Recipient> recipientList) {
-		RecipientList = recipientList;
-	}
-
-	
-	
-	
-	
-	/*@Override
-	public String toString() {
-		return "Customer [id=" + id + ", fname=" + fname + ", lname=" + lname + "]";
-	}*/
+		
 }

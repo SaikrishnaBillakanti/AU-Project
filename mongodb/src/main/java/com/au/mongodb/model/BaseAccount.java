@@ -12,18 +12,16 @@ public class BaseAccount
     private String id;
     private int accountNumber;
     private BigDecimal accountBalance;
-
-    private List<Transaction> TransactionList;
-
+    private List<Transaction> transactionList;
     public BaseAccount() {
     	
     }   
 	public BaseAccount(int accountNumber, BigDecimal accountBalance,
-			List<Transaction> TransactionList) {
+			List<Transaction> transactionList) {
 		super();
 		this.accountNumber = accountNumber;
 		this.accountBalance = accountBalance;
-		this.TransactionList = TransactionList;
+		this.transactionList = transactionList;
 	}
 
 	public String getId() {
@@ -51,11 +49,11 @@ public class BaseAccount
 	}
 
 	public List<Transaction> getTransactionList() {
-		return TransactionList;
+		return transactionList;
 	}
 
-	public void setTransactionList(List<Transaction> TransactionList) {
-		this.TransactionList = TransactionList;
+	public void setTransactionList(List<Transaction> transactionList) {
+		this.transactionList = transactionList;
 	}
 
     
